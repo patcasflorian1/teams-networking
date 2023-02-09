@@ -6,54 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patcas Florian</title>
     <link rel="stylesheet" href="css/style.css" />
-  
   </head>
   <body>
-
-    <header >
+    <header>
       <div id="header-wrapper">
-      <div id="my-picture">
-    <img src="Img/img.jpg" alt="Patcas Florian " width="75"  alt="Florian" />
-  </div>
-      <div id="header-info">
-      <h1>Patcas Florian</h1>
-      
-  </div>
-  
-</div>
-    
+        <div id="my-picture"></div>
+        <div id="header-info">
+          <h1></h1>
+        </div>
+      </div>
     </header>
-   
-   <table border="1" id="teams">
-    <thead>
-<tr >
-    <td>Group</td>
-    <td>Members</td>
-    <td>Project Name</td>
-    <td>Project Url</td>
-</tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-    <tfoot>
-<tr>
-    <td>
-
-    </td>
-    <td>
-        
-    </td>
-    <td>
-        
-    </td>
-    <td>
-        
-    </td>
-</tr>
-    </tfoot>
-
-   </table>
-   <script src="index.js"></script>
+    <form action="" method="get">
+      <table border="1" id="teams">
+        <thead>
+          <tr>
+            <td>Group</td>
+            <td>Members</td>
+            <td>Project Name</td>
+            <td>Project Url</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <input
+                type="text"
+                name="promotion"
+                placeholder="Enter Group"
+                id="promotion"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="members"
+                placeholder="Enter members"
+                id="members"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter name"
+                id="name"
+                required
+              />
+            </td>
+            <td>
+              <input type="text"
+               name="url" 
+               placeholder="Enter url" 
+               id="url" 
+               required
+               />
+            </td>
+            <td>
+              <button type="submit">💾</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+    <script src="index.js"></script>
   </body>
 </html>
