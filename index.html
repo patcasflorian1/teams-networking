@@ -4,27 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patcas Florian</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div id="header-wrapper">
-        <div id="my-picture"></div>
-        <div id="header-info">
-          <h1></h1>
-        </div>
-      </div>
-    </header>
-    <form action="" method="get">
+    <form id="editForm" action="" method="POST">
       <table border="1" id="teams">
         <thead>
           <tr>
-            <td>Group</td>
-            <td>Members</td>
-            <td>Project Name</td>
-            <td>Project Url</td>
-            <td></td>
+            <th>Group</th>
+            <th>Members</th>
+            <th>Project Name</th>
+            <th>Project URL</th>
+            <th></th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -33,8 +25,8 @@
             <td>
               <input
                 type="text"
-                name="promotion"
                 placeholder="Enter Group"
+                name="promotion"
                 id="promotion"
                 required
               />
@@ -42,8 +34,8 @@
             <td>
               <input
                 type="text"
+                placeholder="Enter Members"
                 name="members"
-                placeholder="Enter members"
                 id="members"
                 required
               />
@@ -51,19 +43,20 @@
             <td>
               <input
                 type="text"
+                placeholder="Enter Project Name"
                 name="name"
-                placeholder="Enter name"
                 id="name"
                 required
               />
             </td>
             <td>
-              <input type="text"
-               name="url" 
-               placeholder="Enter url" 
-               id="url" 
-               required
-               />
+              <input
+                type="text"
+                placeholder="Project URL"
+                name="url"
+                id="url"
+                required
+              />
             </td>
             <td>
               <button type="submit">💾</button>
@@ -72,6 +65,7 @@
         </tfoot>
       </table>
     </form>
+
     <script src="index.js"></script>
   </body>
 </html>
