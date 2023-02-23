@@ -1,0 +1,4 @@
+.tern-port
+/.vscode
+/node_modules
+package-lock.json
