@@ -6,7 +6,9 @@ html {
     display: flex;
     flex-direction: column;
   }
-
+  table {
+    width: 100%;
+  }
   #main {
     flex: 2;
     }
