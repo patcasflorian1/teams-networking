@@ -13,11 +13,14 @@ function displayTeams(teams) {
   const teamsHTML = teams.map(
     (team) => `
       <tr>
+      <td>${team.id}</td>
         <td>${team.promotion}</td>
         <td>${team.members}</td>
         <td>${team.name}</td>
         <td>${team.url}</td>
-        <td></td>
+        <td>
+          <a >❌</a>
+        </td>
       </tr>`
   );
 
@@ -47,3 +50,20 @@ function onSubmit(e) {
       }
     });
 }
+function removeTeamRequest(id) {
+ // DELETE teams-json/delete
+fetch("http://localhost:3000/teams-json/delete", {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({id })
+});
+ 
+}
+function initEvents() {
+  const form = document.getElementById("editForm");
+  form.addEventListener("submit", onSubmit);
+}
+
+initEvents();
