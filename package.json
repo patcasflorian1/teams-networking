@@ -8,8 +8,8 @@
     "clear": "npm run clean && rimraf node_modules",
     "clean": "rimraf dist",
     "build": "webpack --mode production",
-    "start": "webpack serve --open"
-
+    "start": "webpack serve --open",
+     "deploy":"npm run build && git add . && commit -m new build && git push"
   
   },
   "repository": {
