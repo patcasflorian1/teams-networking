@@ -53,8 +53,8 @@ function readTeam() {
   }
 }
 
-function displayTeams(teams) {
-  const teamsHTML = teams.map(
+function getTeamsHTML(teams) {
+  return teams.map(
     team => `
       <tr>
         <td>${team.promotion}</td>
@@ -66,11 +66,12 @@ function displayTeams(teams) {
           <a data-id="${team.id}" class="edit-btn">&#9998;</a>
         </td>
       </tr>`
-  );
-
-  document.querySelector("#teams tbody").innerHTML = teamsHTML.join("");
+  ).join("");
+  
 }
-
+function displayTeams(teams) {
+  document.querySelector("#teams tbody").innerHTML = getTeamsHTML(teams);
+}
 function onSubmit(e) {
   e.preventDefault();
   const team = readTeam();
