@@ -25,7 +25,15 @@ function createTeamRequest(team) {
   }).then(r => r.json());
 }
 
-
+function updateTeamRequest(team) {
+  return fetch("http://localhost:3000/teams-json/update", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(team)
+  }).then(r => r.json());
+}
 function deleteTeamRequest(id) {
   return fetch("http://localhost:3000/teams-json/delete", {
     method: "DELETE",
@@ -65,11 +73,16 @@ function displayTeams(teams) {
 
 function onSubmit(e) {
   e.preventDefault();
-
+  const team = readTeam();
   if (editId) {
-    console.warn("update",editId);
+    team.id = editId;
+    updateTeamRequest(team).then(status => {
+      if (status.success) {
+        window.location.reload();
+      }
+    });
   } else {
-    const team = readTeam();
+    
     console.warn("save");
     createTeamRequest(team).then(status => {
       if (status.success) {
@@ -81,7 +94,7 @@ function onSubmit(e) {
 }
 
 // TODO - rename
-function edit(id) {
+function prepareEdit(id) {
   const team = allTeams.find(team => team.id === id);
   console.warn("edit", id, typeof team);
   editId = id;
@@ -105,7 +118,7 @@ function initEvents() {
       });
     } else if (e.target.matches("a.edit-btn")) {
       const id = e.target.dataset.id;
-      edit(id);
+      prepareEdit(id);
     }
   });
 }
