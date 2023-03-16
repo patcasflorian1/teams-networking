@@ -1,20 +1,24 @@
 let allTeams = [];
 let editId;
+function loadTeams() {
+  loadTeamRequest()
+    .then(teams => {
+      //window.teams = teams;
+      allTeams = teams;
+      console.info(teams);
+      displayTeams(teams);
+    });
+}
 
-fetch("http://localhost:3000/teams-json", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json"
+function loadTeamRequest() {
+  return fetch("http://localhost:3000/teams-json", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(r => r.json())
   }
-})
-  .then(r => r.json())
-  .then(teams => {
-    //window.teams = teams;
-    allTeams = teams;
-    console.info(teams);
-    displayTeams(teams);
-  });
-
 function createTeamRequest(team) {
   return fetch("http://localhost:3000/teams-json/create", {
     method: "POST",
@@ -89,8 +93,10 @@ function onSubmit(e) {
     team.id = editId;
     updateTeamRequest(team).then(status => {
       if (status.success) {
-       window.location.reload();
-       
+       //window.location.reload();
+        loadTeams();
+        //displayTeams(team);
+        e.target.reset();
 
         
       }
@@ -142,5 +148,5 @@ function initEvents() {
     }
   });
 }
-
+loadTeams();
 initEvents();
