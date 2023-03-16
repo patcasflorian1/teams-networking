@@ -100,6 +100,7 @@ function onSubmit(e) {
     console.warn("save");
     createTeamRequest(team).then(status => {
       if (status.success) {
+        team.id = status.id;
        // window.location.reload();
        allTeams.push(team);
        //allTeams = [...allTeams, team];
