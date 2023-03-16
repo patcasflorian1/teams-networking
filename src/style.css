@@ -6,6 +6,7 @@ input:not([type="text"]){
 width: 100%;
 box-sizing: border-box;
 }
+
 #myBody {
   background-color: #e2c90e;
   background-image: url(images/radial_bg.png);
