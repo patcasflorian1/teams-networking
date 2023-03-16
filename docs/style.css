@@ -2,6 +2,10 @@ table {
   width: 100%;
   text-color: aliceblue;
 }
+input:not([type="text"]){
+  width: 100%;
+  box-sizing: border-box;
+  }
 #myBody {
   background-color: #dda90b;
   background-image: url(images/radial_bg.png);
