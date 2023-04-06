@@ -63,45 +63,19 @@ function loadTeams() {
   });
 }
 
-function onSubmit(e) {
+async function onSubmit(e) {
   e.preventDefault();
   const team = readTeam();
   if (editId) {
     team.id = editId;
-    updateTeamRequest(team).then(status => {
-      if (status.success) {
-        // load new teams...?
-        //loadTeams();
-        allTeams = allTeams.map(t => {
-          if (t.id === team.id) {
-            return {
-              ...t,
-              ...team
-            };
-          }
-          return t;
-        });
+    const status = await updateTeamRequest(team); 
 
         displayTeams(allTeams);
         e.target.reset();
-      }
-    });
+    
   } else {
-    createTeamRequest(team).then(status => {
-      if (status.success) {
-        // 1. adaugam datele in table...
-        //   1.0. adaug id in team
-        team.id = status.id;
-        //   1.1. addaug team in allTeams
-        //allTeams.push(team);
-        allTeams = [...allTeams, team];
-        //   1.2. apelam displayTeams(allTeams);
-        displayTeams(allTeams);
-        // 2. stergem datele din inputuri
-        //writeTeam({ promotion: "", name: "", url: "", members: "" });
-        e.target.reset();
-      }
-    });
+    const status = await createTeamRequest(team);
+    console.warn("status", status.success, status.id);
   }
 }
 
